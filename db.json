@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "mahdi gosyan",
+      "username": "mhdi01",
+      "crime": 0,
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "ali ghremani",
+      "username": "ali01",
+      "crime": 0,
+      "role": "ADMIN"
+    },
+    {
+      "id": 1,
+      "name": "mohammad amini",
+      "username": "mhmd01",
+      "crime": 0,
+      "role": "USER"
+    }
+  ],
+  "books": [
+    { 
+    "id": 1, 
+    "title": "ketabkhanenimeshab",
+    "price": 250000,
+    "free": 0
+     },
+    { 
+    "id": 2,
+    "title": "golestan",
+    "price": 320000,
+    "free": 1 }
+  ]
+}

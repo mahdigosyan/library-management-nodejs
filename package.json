@@ -1,0 +1,21 @@
+{
+  "name": "library-management-nodejs",
+  "version": "1.0.0",
+  "description": "A simple Node.js library management system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahdigosyan/library-management-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mahdigosyan/library-management-nodejs/issues"
+  },
+  "homepage": "https://github.com/mahdigosyan/library-management-nodejs#readme"
+}
