@@ -35,18 +35,26 @@ const server = http.createServer((req,res)=>{
         const parsurl = url.parse(req.url,true);
         const bookId = parsurl.query.id;
         const newbook = db.books.filter((book) => book.id != bookId)
-        fs.writeFile("db.json",JSON.stringify({...db,books:newbook}),(err)=>{
+        if(newbook.length ===db.books.length){
+            res.writeHead(401,{"content-Type":"application/json"});
+            res.write(JSON.stringify({message:"books not found"}));
+            res.end()
+        }else{
+            fs.writeFile("db.json",JSON.stringify({...db,books:newbook}),(err)=>{
             if (err){
                 throw err
             }
             res.writeHead(200,{'content-type':'application/json'});
             res.write(JSON.stringify({message :"book remov"}));
-            res.end()
-        });
+            res.end();
+        }
+    );
         // res.end("test")
     }
+    }
+        
     
-})
+});
 
 server.listen(3000,()=>{
     console.log("ow you are running in 3000 port");
