@@ -31,7 +31,7 @@ const server = http.createServer((req,res)=>{
         });
         
             
-    }else if(req.method ==="DELETE"){
+    }else if(req.method ==="DELETE" && req.url.startsWith("/api/books")){
         const parsurl = url.parse(req.url,true);
         const bookId = parsurl.query.id;
         const newbook = db.books.filter((book) => book.id != bookId)
@@ -51,6 +51,28 @@ const server = http.createServer((req,res)=>{
     );
         // res.end("test")
     }
+    }else if(req.method === "POST" && req.url ==="/api/books"){
+        let book = ""
+
+        req.on("data",(data)=>{
+            book = book + data.toString();
+        });
+        req.on("end",()=>{
+            const newBook = {id: crypto.randomUUID(),...JSON.parse(book),free:1};
+            db.books.push(newBook);
+            fs.writeFile("db.json",JSON.stringify(db),(err)=>{
+                if(err){
+                    throw err
+                }
+            res.writeHead(200,{'content-type':'application/json'});
+            res.write(JSON.stringify({message :"book add anjam shod"}));
+            res.end();
+                 
+            })
+
+
+            res.end("add new book")
+        })
     }
         
     
